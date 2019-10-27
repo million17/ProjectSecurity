@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="icon" type="@{/image/png}" th:href="@{/images/icons/favicon.png}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/fonts/themify/themify-icons.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/fonts/elegant-font/html-css/style.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/slick/slick.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/vendor/lightbox2/css/lightbox.min.css}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+<link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+<title>Home Page</title>
+</head>
+<body class="animsition">
+<div th:replace="fragments/header :: header_info (vm=${vm.getLayoutHeaderVM()})"></div>
+
+<!-- breadcrumb -->
+<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
+    <a th:href="@{/../../}" class="s-text16">
+        Home
+        <i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
+    </a>
+</div>
+<!-- Product Detail -->
+<div class="container bgwhite p-t-35 p-b-80">
+    <div class="flex-w flex-sb">
+        <div class="w-size13 p-t-30 respon5">
+            <div class="wrap-slick3 flex-sb flex-w">
+                <div class="slick3">
+                    <img th:src="${vm.getProductVM().getMainImage()}" id="test1" class="product-main-image"/>
+                    <div class="slick3" >
+                        <div  th:each=" productImg : ${vm.getProductVM().getProductImageVMS()}">
+                            <div >
+                                <img style="width: auto;max-width:400px;" th:src="${productImg.getLink()}" th:attr="data-image=${productImg.getLink()}" class="card-img-top" class="list-product-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-size14 p-t-30 respon5">
+            <h4 class="product-detail-name m-text16 p-b-13" th:text="${vm.getProductVM().getName()}">
+            </h4>
+
+            <span class="m-text17" th:text="${'Price: ' +vm.getProductVM().getPrice()} + '$'">
+				</span>
+
+
+
+            <!--  -->
+            <div class="p-t-33 p-b-60">
+                <div class="flex-m flex-w p-b-10">
+
+
+                </div>
+
+                <div class="flex-m flex-w">
+
+                </div>
+
+                <div class="flex-r-m flex-w p-t-10">
+                    <div class="w-size16 flex-m flex-w">
+                        <div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
+                            <button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+                                <i class="fs-12 fa fa-minus" aria-hidden="true"></i>
+                            </button>
+
+                            <input class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1" id="getAmount">
+
+                            <button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2" >
+                                <i class="fs-12 fa fa-plus" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
+                            <!-- Button -->
+                            <button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4 add-to-cart" th:attr="data-product=${vm.getProductVM().getId()}">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-b-45">
+                <span class="s-text8 m-r-35" th:text="${'SKU: ' +vm.getProductVM().getId()}"></span>
+                <span class="s-text8" th:text="${'Brand: ' + vm.getProductVM().getBrand()}"></span>
+            </div>
+
+            <!--  -->
+            <div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
+                <h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
+                    Description
+                    <i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
+                    <i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
+                </h5>
+
+                <div class="dropdown-content dis-none p-t-15 p-b-23">
+                    <p class="s-text8" th:text="${vm.getProductVM().getShortDesc()}">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:replace="fragments/footer :: footer_info"></div>
+
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>-->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.9.0/sweetalert2.all.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/select2/select2.min.js}"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/slick-custom.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/lightbox2/js/lightbox.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/sweetalert/sweetalert.min.js}"></script>
+<!--===============================================================================================-->
+
+
+
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/product-detail.js}"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.table-shopping-cart .table-head th{
+    text-align: center!important;
+}
+.table-shopping-cart .column-5,.table-shopping-cart .column-1,.table-shopping-cart .column-2,.table-shopping-cart .column-3,.table-shopping-cart .column-4{
+    padding-right: 0!important;
+    text-align: center;
+}
+.table-shopping-cart .column-1 {
+    padding-left: 0!important;
+    width: 0;
+}
+
+.size7 {
+    width: 110px;
+    height: 41px;
+    margin: 0 auto;
+}

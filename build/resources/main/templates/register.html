@@ -1,0 +1,98 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Head -->
+<head>
+
+    <title>Existing Login Form a Flat Responsive Widget Template :: W3layouts</title>
+
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+
+    <link th:href="@{/css/popuo-box.css}" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- Style --> <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css" media="all">
+
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <!-- //Fonts -->
+
+</head>
+<!-- //Head -->
+
+<!-- Body -->
+<body>
+
+<h1>EXISTING LOGIN FORM</h1>
+
+
+
+<!-- for register popup -->
+<div id="small-dialog1" >
+    <div class="contact-form1">
+        <div class="contact-w3-agileits">
+            <h3>Register Form</h3>
+            <form th:action="@{/register-user}" th:object="${user}" method="post">
+                <div class="form-sub-w3ls">
+                    <input placeholder="User Name"  type="text" required="" th:field="*{userName}" name="username" id="username">
+                    <div class="icon-agile">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="form-sub-w3ls">
+                    <input placeholder="Email" class="mail" type="email" required="" th:field="*{email}" name="email" id="email">
+                    <div class="icon-agile">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </div>
+                </div>
+                <div class="form-sub-w3ls">
+                    <input placeholder="Password"  type="password" required="" th:field="*{password}" name="password" id="password">
+                    <div class="icon-agile">
+                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+                    </div>
+                </div>
+
+                <div class="login-check">
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I Accept Terms & Conditions</label>
+                </div>
+                <div class="submit-w3l">
+                    <input type="submit" value="Register" />
+                </div>
+
+                <div class="aitssendbuttonw3ls">
+                    <p> Back to Home <span>→</span> <a class="w3_play_icon1" th:href="@{'../../../'}"> Click Here</a></p>
+                    <div class="clear"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- //for register popup -->
+
+<div class="w3footeragile">
+    <p> &copy; 2017 Existing Login Form. All Rights Reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
+</div>
+
+
+<script type="text/javascript" th:src="@{/js/jquery-2.1.4.min.js}"></script>
+
+<!-- pop-up-box-js-file -->
+<script th:src="@{/js/jquery.magnific-popup.js}" type="text/javascript"></script>
+<!--//pop-up-box-js-file -->
+
+
+</body>
+<!-- //Body -->
+
+</html>

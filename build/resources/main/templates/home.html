@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="icon" type="@{/image/png}" th:href="@{/images/icons/favicon.png}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/themify/themify-icons.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/elegant-font/html-css/style.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/slick/slick.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/lightbox2/css/lightbox.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <title>Home Page</title>
+</head>
+<body class="animsition">
+    <div th:replace="fragments/header :: header_info (vm=${vm.getLayoutHeaderVM()})"></div>
+    <section class="slide1">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                <div class="item-slick1 item1-slick1" style="background-image: url(images/master-slide-02.jpg);">
+                    <div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
+						<span class="caption1-slide1 m-text1 t-center animated visible-false m-b-15" data-appear="fadeInDown">
+							Women Collection 2018
+						</span>
+
+                        <h2 class="caption2-slide1 xl-text1 t-center animated visible-false m-b-37" data-appear="fadeInUp">
+                            Cat & Dog
+                        </h2>
+
+                        <div class="wrap-btn-slide1 w-size1 animated visible-false" data-appear="zoomIn">
+                            <!-- Button -->
+                            <a th:href="@{/shop}" class="flex-c-m size2 bo-rad-23 s-text2 bgwhite hov1 trans-0-4">
+                                Shop Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- New Product -->
+
+    <section class="newproduct bgwhite p-t-45 p-b-105">
+        <div class="container" >
+            <div class="sec-title p-b-60">
+                <h3 class="m-text5 t-center">
+                    Featured Products
+                </h3>
+            </div>
+            <!-- Slide2 -->
+            <div class="wrap-slick2">
+                <div class="slick2">
+
+                    <div class="item-slick2 p-l-15 p-r-15" th:each="product : ${vm.getProductVMList()}">
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-img wrap-pic-w of-hidden pos-relative ">
+                                <a>
+                                <img th:src="${product.getMainImage()}" alt="IMG-PRODUCT">
+                                </a>
+                                <div class="block2-overlay trans-0-4">
+                                    <a th:href="${'/product/'+product.getId()}" class="block2-btn-addwishlist hov-pointer trans-0-4">
+                                        <i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+                                        <i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+                                    </a>
+                                    <div class="block2-btn-addcart w-size1 trans-0-4">
+                                        <!-- Button -->
+                                        <button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4 add-to-cart" th:attr="data-product=${product.getId()}">
+                                            Add to Cart
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block2-txt p-t-20">
+                                <h3  class="block2-name dis-block s-text3 p-b-5" th:text="${product.getName()}"></h3>
+
+                                <span class="block2-price m-text6 p-r-5" th:text="${product.getPrice() + ' $'}"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Instagram -->
+    <section class="instagram p-t-20">
+        <div class="sec-title p-b-52 p-l-15 p-r-15">
+            <h3 class="m-text5 t-center">
+                @ follow us on Instagram
+            </h3>
+        </div>
+
+        <div class="flex-w">
+            <!-- Block4 -->
+            <div class="block4 wrap-pic-w">
+                <img src="images/gallery-03.jpg" alt="IMG-INSTAGRAM">
+
+                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                        <p class="s-text10 m-b-15 h-size1 of-hidden">
+                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+                        </p>
+
+                        <span class="s-text9">
+							Photo by @nancyward
+						</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Block4 -->
+            <div class="block4 wrap-pic-w">
+                <img src="images/gallery-07.jpg" alt="IMG-INSTAGRAM">
+
+                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                        <p class="s-text10 m-b-15 h-size1 of-hidden">
+                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+                        </p>
+
+                        <span class="s-text9">
+							Photo by @nancyward
+						</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Block4 -->
+            <div class="block4 wrap-pic-w">
+                <img src="images/gallery-09.jpg"  alt="IMG-INSTAGRAM">
+
+                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                        <p class="s-text10 m-b-15 h-size1 of-hidden">
+                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+                        </p>
+
+                        <span class="s-text9">
+							Photo by @nancyward
+						</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Block4 -->
+            <div class="block4 wrap-pic-w">
+                <img src="images/gallery-13.jpg"   alt="IMG-INSTAGRAM">
+
+                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                        <p class="s-text10 m-b-15 h-size1 of-hidden">
+                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+                        </p>
+
+                        <span class="s-text9">
+							Photo by @nancyward
+						</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Block4 -->
+            <div class="block4 wrap-pic-w">
+                <img src="images/gallery-15.jpg"  style="max-width: 720px;max-height: 720px;" alt="IMG-INSTAGRAM">
+
+                <a href="#" class="block4-overlay sizefull ab-t-l trans-0-4">
+					<span class="block4-overlay-heart s-text9 flex-m trans-0-4 p-l-40 p-t-25">
+						<i class="icon_heart_alt fs-20 p-r-12" aria-hidden="true"></i>
+						<span class="p-t-2">39</span>
+					</span>
+
+                    <div class="block4-overlay-txt trans-0-4 p-l-40 p-r-25 p-b-30">
+                        <p class="s-text10 m-b-15 h-size1 of-hidden">
+                            Nullam scelerisque, lacus sed consequat laoreet, dui enim iaculis leo, eu viverra ex nulla in tellus. Nullam nec ornare tellus, ac fringilla lacus. Ut sit amet enim orci. Nam eget metus elit.
+                        </p>
+
+                        <span class="s-text9">
+							Photo by @nancyward
+						</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Shipping -->
+    <section class="shipping bgwhite p-t-62 p-b-46">
+        <div class="flex-w p-l-15 p-r-15">
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Free Delivery Worldwide
+                </h4>
+
+                <a href="#" class="s-text11 t-center">
+                    Click here for more info
+                </a>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 bo2 respon2">
+                <h4 class="m-text12 t-center">
+                    30 Days Return
+                </h4>
+
+                <span class="s-text11 t-center">
+					Simply return it within 30 days for an exchange.
+				</span>
+            </div>
+
+            <div class="flex-col-c w-size5 p-l-15 p-r-15 p-t-16 p-b-15 respon1">
+                <h4 class="m-text12 t-center">
+                    Store Opening
+                </h4>
+
+                <span class="s-text11 t-center">
+					Shop open from Monday to Sunday
+				</span>
+            </div>
+        </div>
+    </section>
+
+
+    <div th:replace="fragments/footer :: footer_info"></div>
+
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.9.0/sweetalert2.all.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/select2/select2.min.js}"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/slick-custom.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/lightbox2/js/lightbox.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/sweetalert/sweetalert.min.js}"></script>
+<!--===============================================================================================-->
+
+
+
+<script th:src="@{/js/main.js}"></script>
+<script th:src="@{/js/home.js}"></script>
+</body>
+</html>

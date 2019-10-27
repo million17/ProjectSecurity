@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="icon" type="@{/image/png}" th:href="@{/images/icons/favicon.png}"/>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/bootstrap/css/bootstrap.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/themify/themify-icons.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/Linearicons-Free-v1.0.0/icon-font.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/elegant-font/html-css/style.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animate/animate.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/css-hamburgers/hamburgers.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/animsition/css/animsition.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/select2/select2.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/daterangepicker/daterangepicker.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/slick/slick.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/vendor/lightbox2/css/lightbox.min.css}">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/util.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/home.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/user-detail.css}" type="text/css">
+    <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //Meta-Tags -->
+
+
+
+    <!-- Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+    <title>User Detail</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header_info (vm=${vm.getLayoutHeaderVM()})"></div>
+<section class="bgwhite p-t-66 p-b-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 p-b-30" >
+                <form class="leave-comment" th:action="@{/order/checkout}" method="post" th:object="${order}">
+                    <h4 class="m-text26 p-b-36 p-t-15">
+                        Checkout to Cart
+                    </h4>
+
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Full Name" th:field="*{customerName}" id="input-name">
+                    </div>
+
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Phone Number" th:field="*{phoneNumber}" id="input-phone-number" >
+                    </div>
+
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Email Address" th:field="*{email}" id="input-email">
+                    </div>
+                    <div class="bo4 of-hidden size15 m-b-20">
+                        <input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="address" placeholder=" Address" th:field="*{address}" id="input-address">
+                    </div>
+                    <div class="w-size25">
+                        <!-- Button -->
+                        <button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4" type="submit">
+                            Order
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<div th:replace="fragments/footer :: footer_info"></div>
+
+
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/popper.js}"></script>
+<script type="text/javascript" th:src="@{/vendor/bootstrap/js/bootstrap.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/select2/select2.min.js}"></script>
+
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/slick/slick.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/slick-custom.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/lightbox2/js/lightbox.min.js}"></script>
+<!--===============================================================================================-->
+<script type="text/javascript" th:src="@{/vendor/sweetalert/sweetalert.min.js}"></script>
+
+
+<!--===============================================================================================-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.9.0/sweetalert2.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.js"></script>
+
+<script th:src="@{/js/main.js}"></script>
+
+</body>
+</html>
